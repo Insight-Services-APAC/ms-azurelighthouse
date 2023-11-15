@@ -6,21 +6,23 @@ param(
     [parameter(mandatory)][string]$Country,
     [parameter(mandatory)][string]$Delivery
 )
+$Country = $Country.ToLower()
+$Delivery = $Delivery.ToLower()
 
-#Check Modules
+$RGTemplateParameterFile = ('.\resourcegroup.' + $Delivery + '.' + $Country + '.template.json')
+$SubscriptionTemplateParameterFile = ('.\subscription.' + $Delivery + '.' + $Country + '.template.parameters.json')
+
+Write-Output $RGTemplateParameterFile
+Write-Output $SubscriptionTemplateParameterFile
+
+<#
 if (-not (Get-Module -Name Az.ResourceGraph -ErrorAction SilentlyContinue)) {
     Install-Module Az.ResourceGraph -Force -Confirm:$false
 }
 
-#Switch Context to where Guardian is deployed
 Write-Host "Switching to Azure Guardian Subscription" -ForegroundColor Cyan
 Set-AzContext -Subscription $SubscriptionID
 
-# Adjust Parameters
-$Country = $Country.ToLower()
-$Delivery = $Delivery.ToLower()
-
-#Validate Resource Group Name
 $ResourceGroup = Get-AzResourceGroup -ResourceGroupName $ResourceGroupName -ErrorAction SilentlyContinue
 if ($ResourceGroup -eq $null) {
     Write-Host "$ResourceGroupName does not exist" -ForegroundColor Yellow
@@ -30,12 +32,12 @@ if ($ResourceGroup -eq $null) {
 }
 else { Write-Host "Validated Resource Group Name" -ForegroundColor Cyan }
 
-# Deploying Azure Lighthouse delegate
+
 Write-Host "Deploying Azure Lighthouse to $ResourceGroupName" -ForegroundColor Cyan
-New-AzSubscriptionDeployment -Name "RGDeployment" -Location $Region -TemplateFile ('.\resourcegroup.' + $Delivery + '.' + $Country + '.template.json') -rgName $ResourceGroupName
+New-AzSubscriptionDeployment -Name "RGDeployment" -Location $Region -TemplateFile .\resourcegroup.template.json -TemplateParameterFile $RGTemplateParameterFile -rgName $ResourceGroupName
 Write-Host "Deployed Azure Lighthouse to $ResourceGroupName" -ForegroundColor Cyan
 
-# Validate Management Group Name
+
 $ManagementGroup = Get-AzManagementGroup | Where-Object { $_.displayName -eq $ManagementGroupName }
 if ($ManagementGroup -eq $null) {
     Write-Host "$ManagementGroupName does not exist" -ForegroundColor Yellow
@@ -52,7 +54,7 @@ ForEach ($subscription in $subscriptions) {
     try {
         Write-Host "Deploying Azure Lighthouse to"$subscription.Name -ForegroundColor Cyan
         Set-AzContext -Subscription $subscription.subscriptionId
-        New-AzSubscriptionDeployment -Location $Region -TemplateFile .\subscription.template.json -TemplateParameterFile ('.\subscription.' + $Delivery + '.' + $Country + '.template.parameters.json')
+        New-AzSubscriptionDeployment -Location $Region -TemplateFile .\subscription.template.json -TemplateParameterFile $SubscriptionTemplateParameterFile
         $data = "" | Select-Object SubscriptionName, SubscriptionID, Status
         $data.SubscriptionName = $subscription.Name
         $data.SubscriptionID = $subscription.subscriptionId
@@ -71,3 +73,4 @@ ForEach ($subscription in $subscriptions) {
 Write-Host "Deployed Azure Lighthouse to subscription/s under" $managementGroup.DisplayName -ForegroundColor Cyan
 Write-Host "Enrollment Status for each subscription"
 $enrollmentstatus
+#>

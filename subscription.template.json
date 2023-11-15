@@ -7,14 +7,14 @@
    "metadata": {
     "description": "Specify a unique name for your offer"
    },
-   "defaultValue": "Insight MS-APAC Azure Guardian"
+   "defaultValue": "Insight Guardian"
   },
   "mspOfferDescription": {
    "type": "string",
    "metadata": {
     "description": "Name of the Managed Service Provider offering"
    },
-   "defaultValue": "Azure Guardian subscription reader access for Lifecycle management  & reporting."
+   "defaultValue": "Insight Guardian subscription reader access for Lifecycle management  & reporting."
   },
   "managedByTenantId": {
    "type": "string",

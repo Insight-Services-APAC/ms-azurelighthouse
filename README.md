@@ -22,5 +22,8 @@ Steps to perform Azure Lighthouse deployment
 4. ./Deploy-AzureLighthouse.ps1
 5. Add Management Group Name, Guardian Subscription Id, Guardian RG name, Region, and Country on prompt
 6. For "Region" prompt use the appropriate region. (ie., australiaeast, australiasoutheast,etc.,)
-7. For "Country" enter either "AU" for Australia or "NZ" for New Zealand
+7. For "Country" enter the following based on the selection below
+- AU for Australia
+- NZ for New Zealand
+- US for North America
 8. For Delivery, if Azure Guardian will be delivered globally enter "global" if within region enter "restricted"
