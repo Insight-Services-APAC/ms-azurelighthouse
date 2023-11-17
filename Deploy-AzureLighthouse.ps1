@@ -12,10 +12,7 @@ $Delivery = $Delivery.ToLower()
 $RGTemplateParameterFile = ('.\resourcegroup.' + $Delivery + '.' + $Country + '.template.json')
 $SubscriptionTemplateParameterFile = ('.\subscription.' + $Delivery + '.' + $Country + '.template.parameters.json')
 
-Write-Output $RGTemplateParameterFile
-Write-Output $SubscriptionTemplateParameterFile
 
-<#
 if (-not (Get-Module -Name Az.ResourceGraph -ErrorAction SilentlyContinue)) {
     Install-Module Az.ResourceGraph -Force -Confirm:$false
 }
@@ -73,4 +70,3 @@ ForEach ($subscription in $subscriptions) {
 Write-Host "Deployed Azure Lighthouse to subscription/s under" $managementGroup.DisplayName -ForegroundColor Cyan
 Write-Host "Enrollment Status for each subscription"
 $enrollmentstatus
-#>
