@@ -9,7 +9,7 @@ param(
 $Country = $Country.ToLower()
 $Delivery = $Delivery.ToLower()
 
-$RGTemplateParameterFile = ('.\resourcegroup.' + $Delivery + '.' + $Country + '.template.json')
+$RGTemplateParameterFile = ('.\resourcegroup.' + $Delivery + '.' + $Country + '.template.parameters.json')
 $SubscriptionTemplateParameterFile = ('.\subscription.' + $Delivery + '.' + $Country + '.template.parameters.json')
 
 
