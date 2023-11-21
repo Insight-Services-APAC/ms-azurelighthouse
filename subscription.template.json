@@ -7,7 +7,7 @@
    "metadata": {
     "description": "Specify a unique name for your offer"
    },
-   "defaultValue": "Insight Guardian"
+   "defaultValue": "Insight Guardian - Subscription"
   },
   "mspOfferDescription": {
    "type": "string",
