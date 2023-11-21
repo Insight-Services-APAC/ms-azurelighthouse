@@ -5,14 +5,14 @@
         "authorizations": {
             "value": [
                 {
-                    "principalId": "2123654b-d4af-4920-9403-e2f1b6c0c1ec",
-                    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-                    "principalIdDisplayName": "Insight-US-Guardian-Consultant"
+                    "principalId": "d58f3234-5da6-4c0e-a54d-91b943062ae9",
+                    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                    "principalIdDisplayName": "Insight-MS-APAC-Guardian-Consultant"
                    },
                    {
-                    "principalId": "95b65b87-c173-4976-8bd5-eadc5dafedab",
+                    "principalId": "31ea58d9-8dff-47e7-9bfd-6d31677047fe",
                     "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
-                    "principalIdDisplayName": "Insight-US-Guardian-ArchitectOwner"
+                    "principalIdDisplayName": "Insight-MS-APAC-Guardian-ArchitectOwner"
                    }
             ]
         }
