@@ -1,0 +1,20 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "authorizations": {
+            "value": [
+                {
+                    "principalId": "88e8cec6-1c63-4c2c-826b-2a0ec7ef3892",
+                    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+                    "principalIdDisplayName": "Insight-Global-Guardian-Consultant"
+                   },
+                   {
+                    "principalId": "45a9c984-af7b-48e7-a815-959e26d09f98",
+                    "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
+                    "principalIdDisplayName": "Insight-Global-Guardian-ArchitectOwner"
+                   }
+            ]
+        }
+    }
+}
