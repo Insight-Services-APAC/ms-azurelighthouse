@@ -7,12 +7,12 @@
                 {
                     "principalId": "0299d6fa-6063-4782-9f0c-24314c13cc27",
                     "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-                    "principalIdDisplayName": "Insight-MS-APAC-Guardian-Consultant"
+                    "principalIdDisplayName": "Insight-MS-APAC-AU-Guardian-Consultant"
                    },
                    {
-                    "principalId": "31ea58d9-8dff-47e7-9bfd-6d31677047fe",
+                    "principalId": "2224f864-91c5-49ed-ae1d-84b62ea8d22b",
                     "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46",
-                    "principalIdDisplayName": "Insight-MS-APAC-Guardian-ArchitectOwner"
+                    "principalIdDisplayName": "Insight-MS-APAC-AU-Guardian-ArchitectOwner"
                    }
             ]
         }
