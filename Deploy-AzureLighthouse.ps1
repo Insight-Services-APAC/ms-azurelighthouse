@@ -3,14 +3,14 @@ param(
     [parameter(mandatory)][string]$SubscriptionID,
     [parameter(mandatory)][string]$ResourceGroupName,
     [parameter(mandatory)][string]$Region,
-    [parameter(mandatory)][string]$Country,
-    [parameter(mandatory)][string]$Delivery
+    [parameter(mandatory)][string]$Country
+    #[parameter(mandatory)][string]$Delivery
 )
 $Country = $Country.ToLower()
-$Delivery = $Delivery.ToLower()
+$Delivery = 'global'
 
-$RGTemplateParameterFile = ('.\resourcegroup.' + $Delivery + '.' + $Country + '.template.parameters.json')
-$SubscriptionTemplateParameterFile = ('.\subscription.' + $Delivery + '.' + $Country + '.template.parameters.json')
+$RGTemplateParameterFile = ('.\templates\resourcegroup.' + $Delivery + '.' + $Country + '.template.parameters.json')
+$SubscriptionTemplateParameterFile = ('.\templates\subscription.' + $Delivery + '.' + $Country + '.template.parameters.json')
 
 
 if (-not (Get-Module -Name Az.ResourceGraph -ErrorAction SilentlyContinue)) {
